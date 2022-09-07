@@ -87,6 +87,27 @@ namespace TestProject
            
            
         }
+
+        // task 2
+        [TestMethod]
+        public void RomanNumberParseNPlacement()
+        {
+            // ~ XN  
+            var exception = Assert.ThrowsException<ArgumentException>(() => { Rumnumber.Parse("XN"); });
+            var expect = new ArgumentException("Only 1 N is allowed!");
+            Assert.AreEqual(expect.Message, exception.Message);
+
+            // XNX 
+            exception = Assert.ThrowsException<ArgumentException>(() => { Rumnumber.Parse("XNX"); });
+            Assert.AreEqual(expect.Message, exception.Message);
+
+            //  NX
+            exception = Assert.ThrowsException<ArgumentException>(() => { Rumnumber.Parse("NX"); });
+            Assert.AreEqual(expect.Message, exception.Message);
+
+        }
+
+
     }
 }
 

@@ -11,6 +11,12 @@ namespace Classwork
         // Одержання числа з рядкового запису
         public static int Parse(String str)
         {
+
+            if (str.Contains('N') && str.Length > 1)
+            {
+                throw new ArgumentException("Only 1 N is allowed!");
+            }
+
             char[] digits = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
             int[] digitValues = { 1, 5, 10, 50, 100, 500, 1000 };
             // Якщо наступна цифра числа більша за поточну, то
