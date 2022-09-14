@@ -100,7 +100,7 @@ namespace TestProject
             Rumnumber num = new();
             for (int n = 0; n <= 2022; ++n)
             {
-                num.a = n;
+                num.Value = n;
                 Assert.AreEqual(n, Rumnumber.Parse(num.ToString()));
             }
         }
@@ -150,7 +150,7 @@ namespace TestProject
             Rumnumber num = new();
             for (int n = 0; n <= 100; n++)
             {
-                num.a = n;
+                num.Value = n;
                 Assert.AreEqual(n, Rumnumber.Parse(num.ToString()));
             }
         }
@@ -167,7 +167,7 @@ namespace TestProject
             Assert.AreEqual(rm3, rm1);
             Assert.IsTrue(rm3 == rm1);
 
-            Rumnumber rm4 = rm1 with { a = 10 };
+            Rumnumber rm4 = rm1 with { Value = 10 };
 
             Assert.AreNotSame(rm4, rm1);
             Assert.IsFalse(rm4 == rm1);
@@ -208,7 +208,7 @@ namespace TestProject
 
 
             Rumnumber romanNumber = new Rumnumber(10);
-            Assert.AreEqual(20, romanNumber.Add(10).a);
+            Assert.AreEqual(20, romanNumber.Add(10).Value);
             Assert.AreEqual("V", romanNumber.Add(-5).ToString());
             Assert.AreEqual(romanNumber, romanNumber.Add(0));
 
@@ -222,9 +222,9 @@ namespace TestProject
             Assert.AreEqual(-400, Rumnumber.Parse("-CD"));
             Assert.AreEqual(-1900, Rumnumber.Parse("-MCM"));
 
-            Rumnumber rn = new() { a = -10 };
+            Rumnumber rn = new() { Value = -10 };
             Assert.AreEqual("-X", rn.ToString());
-            rn.a = -90;
+            rn.Value = -90;
             Assert.AreEqual("-XC", rn.ToString());
 
             Assert.ThrowsException<ArgumentException>(() => Rumnumber.Parse("M-CM"));
@@ -247,7 +247,12 @@ namespace TestProject
             Rumnumber rn9 = Rumnumber.Add(rn5, "IV");
             Rumnumber rn13 = Rumnumber.Add(rn5, rn8);
 
-
+            // test static RomanNumber.Add
+            Assert.AreEqual(5, rn5.Value);
+            Assert.AreEqual(8, rn8.Value);
+            Assert.AreEqual(10, rn10.Value);
+            Assert.AreEqual(9, rn9.Value);
+            Assert.AreEqual(13, rn13.Value);
         }
 
     }

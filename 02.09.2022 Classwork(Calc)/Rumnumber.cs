@@ -9,11 +9,11 @@ namespace Classwork
     public record Rumnumber
     {
 
-        public int a { get; set; }
+        public int Value { get; set; }
 
         public Rumnumber(int A = 0)
         {
-            a = A;
+            Value = A;
         }
 
 
@@ -82,7 +82,7 @@ namespace Classwork
                 throw new ArgumentException(nameof(rn));
             }
 
-            return new(this.a + rn.a);
+            return new(this.Value + rn.Value);
 
         }
         public Rumnumber Add(int rn)
@@ -90,7 +90,7 @@ namespace Classwork
 
 
 
-            return new(this.a + rn);
+            return new(this.Value + rn);
 
         }
         public Rumnumber Add(string roman)
@@ -103,7 +103,7 @@ namespace Classwork
         }
         public static Rumnumber Add(Rumnumber f, string s)
         {
-            return new Rumnumber(f.a + Parse(s));
+            return new Rumnumber(f.Value + Parse(s));
         }
         public static Rumnumber Add(string f, string s)
         {
@@ -111,7 +111,7 @@ namespace Classwork
         }
         public static Rumnumber Add(Rumnumber f, Rumnumber s)
         {
-            return new Rumnumber(f.a + s.a);
+            return new Rumnumber(f.Value + s.Value);
         }
         public static Rumnumber Add(int f, int s)
         {
@@ -138,12 +138,12 @@ namespace Classwork
 
         public override string ToString()
         {
-            if (this.a == 0)
+            if (this.Value == 0)
             {
                 return "N";
             }
-            int n = this.a < 0 ? -this.a : this.a;
-            String res = this.a < 0 ? "-" : "";
+            int n = this.Value < 0 ? -this.Value : this.Value;
+            String res = this.Value < 0 ? "-" : "";
 
             String[] parts = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
             int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
