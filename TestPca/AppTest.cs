@@ -257,7 +257,40 @@ namespace TestProject
             //values
         }
 
+        [TestMethod]
+        public void AddStaticThrowException()
+        {
+            Rumnumber rumNumber = new Rumnumber(10);
+
+            // int int
+            Assert.IsNotNull(Rumnumber.Add(2, 3));
+
+            // RomanNumber RomanNumber
+            Assert.ThrowsException<ArgumentNullException>(() => Rumnumber.Add(null!, rumNumber));
+
+            //string string
+            Assert.ThrowsException<ArgumentNullException>(() => Rumnumber.Add((string)null!, null!));
+
+            // rumnumber string
+            Assert.ThrowsException<ArgumentNullException>(() => Rumnumber.Add(rumNumber, (string)null!));
+            Assert.ThrowsException<ArgumentNullException>(() => Rumnumber.Add((Rumnumber)null!, "IX"));
+            Assert.ThrowsException<ArgumentNullException>(() => Rumnumber.Add((Rumnumber)null!, (string)null!)); 
+
+            // string string
+            Assert.ThrowsException<ArgumentException>(() => Rumnumber.Add("", ""));
+            Assert.ThrowsException<ArgumentException>(() => Rumnumber.Add("A", "X"));
+            Assert.ThrowsException<ArgumentException>(() => Rumnumber.Add("XA", "A"));
+            Assert.ThrowsException<ArgumentException>(() => Rumnumber.Add("X", "A"));
+
+            // rumnumber  string
+            Assert.ThrowsException<ArgumentException>(() => Rumnumber.Add(rumNumber, ""));
+            Assert.ThrowsException<ArgumentException>(() => Rumnumber.Add(rumNumber, "A"));
+            Assert.ThrowsException<ArgumentException>(() => Rumnumber.Add(rumNumber, "XXA"));
+
+        }
+
     }
+
 
 
     [TestClass]
