@@ -94,19 +94,7 @@ namespace TestProject
         }
 
         [TestMethod]
-        public void RomanNumberToStringParseCrossTest()
-        {
-            /* Проверка "совместной" работы Parse - ToString
-             * Циклом генерируем числа n = 0 - 2022, 
-             * -> Roman(n) -> ToString -> Parse == n
-             */
-            Rumnumber num = new();
-            for (int n = 0; n <= 2022; ++n)
-            {
-                num.Value = n;
-                Assert.AreEqual(n, Rumnumber.Parse(num.ToString()));
-            }
-        }
+       
 
         //- Додати тест для числа "N" - 0
         [TestMethod]
