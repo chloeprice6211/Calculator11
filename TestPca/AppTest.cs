@@ -35,6 +35,8 @@ namespace TestProject
             Assert.AreEqual(4, Rumnumber.Parse("IV"));
             Assert.AreEqual(15, Rumnumber.Parse("XV"));
             Assert.AreEqual(900, Rumnumber.Parse("CM"));
+
+
             Assert.AreEqual(400, Rumnumber.Parse("CD"));
             Assert.AreEqual(55, Rumnumber.Parse("LV"));
             Assert.AreEqual(40, Rumnumber.Parse("XL"));
