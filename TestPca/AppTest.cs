@@ -73,6 +73,7 @@ namespace TestProject
             exc = Assert.ThrowsException<ArgumentException>(() => { Rumnumber.Parse("X X"); });
 
             exp = new ArgumentException("Invalid char X X");
+
             Assert.AreEqual(exc.Message.StartsWith(exp.Message), true);
 
 
